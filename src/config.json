@@ -1,0 +1,15 @@
+{
+    "secret": "YourSecretKey",
+    "timeGate": {
+        "day": 1,
+        "hour": 0,
+        "minute": 0,
+        "seconds": 0
+    },
+    "createConnection": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "test"
+    }
+}
