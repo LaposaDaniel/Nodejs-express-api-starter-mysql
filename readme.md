@@ -145,7 +145,7 @@ Run sql [script](create.sql) on your database.
 ```SQL
 CREATE DATABASE test
 CHARACTER SET latin1
-COLLATE latin1_swedish_ci;
+COLLATE utf8_general_ci;
 
 USE test;
 
