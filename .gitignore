@@ -106,3 +106,4 @@ dist
 
 #myignore
 __helper/
+src/config.json

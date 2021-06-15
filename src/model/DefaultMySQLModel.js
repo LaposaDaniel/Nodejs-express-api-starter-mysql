@@ -36,7 +36,7 @@ module.exports = class defaultMySQLModel {
     insert(data, cb) {
         this.db.query(`INSERT INTO ${this.table} (${Object.keys(data).join(', ')}) VALUES (${Object.values(data)
             .map((value) => {
-                if (typeof value == 'object') {
+                if (typeof value == 'object' && value !== null) {
                     return this.db.escape(
                         `${value.getFullYear()}-${value.getMonth()}-${value.getDate()} ${value.getHours()}:${value.getMinutes()}:${value.getSeconds()}`
                     );
@@ -59,7 +59,7 @@ module.exports = class defaultMySQLModel {
             UPDATE ${this.table} SET 
                 ${keys
                 .map((key) => {
-                    if (typeof data.updateData[key] == 'object') {
+                    if (typeof data.updateData[key] == 'object' && data.updateData[key] !== null) {
                         return `${key} = ${this.db.escape(
                             `${data.updateData[key].getFullYear()}-${data.updateData[key].getMonth()}-${data.updateData[key].getDate()} ${data.updateData[key].getHours()}:${data.updateData[key].getMinutes()}:${data.updateData[key].getSeconds()}`
                         )}`;
@@ -98,7 +98,7 @@ module.exports = class defaultMySQLModel {
             .map((item) => {
                 return Object.keys(item)
                     .map((key) => {
-                        if (typeof item[key] == 'object') {
+                        if (typeof item[key] == 'object' && item[key] !== null) {
                             return `${key} = ${this.db.escape(
                                 `${item[key].getFullYear()}-${item[key].getMonth()}-${item[key].getDate()} ${item[key].getHours()}:${item[key].getMinutes()}:${item[key].getSeconds()}`
                             )}`;
